@@ -36,7 +36,7 @@ JavaScriptで作成したシンプルなカウントダウンタイマーです�
 
 ## 作者情報
 - 名前: saori
-- GitHub: [https://github.com/ 
+- GitHub: [https://github.com/]
 
 ---
 
