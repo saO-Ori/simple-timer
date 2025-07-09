@@ -1,4 +1,4 @@
-# Simple Timer - シンプルタイマーアプリ
+# Simple Timer - シンプルタイマー
 
 ## 概要
 HTML、CSS、JavaScriptで作成したシンプルなカウントダウンタイマーです。  
