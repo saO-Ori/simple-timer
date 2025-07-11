@@ -103,29 +103,30 @@ function resetTimer() {
 }
 
 // ------------------------------
-// 時間表示更新 mm:ss形式
+// 表示更新（hh:mm:ss or mm:ss）
 // ------------------------------
 function updateDisplay(seconds) {
-  const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-  const s = String(seconds % 60).padStart(2, '0');
-  timeDisplay.textContent = `${m}:${s}`;
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  timeDisplay.textContent = h > 0
+    ? `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+    : `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
 // ------------------------------
-// 入力文字列から秒数を計算（例: 120 → 1分20秒）
+// 入力文字列から秒数に変換（6000特例あり）
 // ------------------------------
 function parseSmartTime(inputStr) {
-  const num = parseInt(inputStr, 10);
-  if (isNaN(num) || num < 0) return 0;
-
-  if (num < 100) {
-    return num;
-  } else {
-    const min = Math.floor(num / 100);
-    const sec = num % 100;
-    return min * 60 + sec;
-  }
+  const raw = inputStr.replace(/\D/g, '').padStart(2, '0');
+  if (raw === '6000') return 3600;
+  const len = raw.length;
+  const s = parseInt(raw.slice(-2), 10);
+  const m = len > 2 ? parseInt(raw.slice(-4, -2), 10) : 0;
+  const h = len > 4 ? parseInt(raw.slice(0, -4), 10) : 0;
+  return h * 3600 + m * 60 + s;
 }
+
 
 // ------------------------------
 // プリセット設定（実行中は無効）
