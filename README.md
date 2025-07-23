@@ -45,7 +45,7 @@ HTML、CSS、JavaScriptで作成したシンプルなカウントダウンタイ
 無断転載・無断利用はご遠慮ください。
 
 ## 作者情報
-- 名前: saori
+- 名前: sari
 - GitHub: [https://github.com/](https://sao-ori.github.io/simple-timer/)]
 
 ---
